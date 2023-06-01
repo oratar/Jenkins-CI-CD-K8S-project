@@ -25,6 +25,7 @@ pipeline {
              sh '''
                   echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin
                   docker image tag dotnet_app $DOCKERHUB_REGISTERY:$IMG_TAG
+                '''
            }
           
          }
