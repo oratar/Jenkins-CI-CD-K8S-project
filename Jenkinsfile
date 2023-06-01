@@ -8,7 +8,7 @@ pipeline {
     stage('build') {
       steps {
            container('docker') {
-                sh ' docker -h'
+                sh ' docker build -t simple_app .'
         }
       } 
     }
