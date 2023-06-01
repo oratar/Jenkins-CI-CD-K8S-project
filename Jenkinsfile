@@ -8,7 +8,7 @@ pipeline {
     stage('build') {
       steps {
            container('docker') {
-                sh ' docker build -t catalog ./src/'
+                sh ' docker -h'
         }
       } 
     }
