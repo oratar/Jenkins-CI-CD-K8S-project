@@ -36,8 +36,10 @@ pipeline {
         container('kubectl') {
           withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
             script {
-              sh ''' 
-                kubectl cluster-info
+              sh '''               
+               sed -i "s/<TAG>/$IMG_TAG /" ./manifests/deployment.yaml
+               kubectl apply -f ./manifests/deployment.yaml
+               kubectl apply -f ./manifests/service.yaml
               '''
             }
           }
