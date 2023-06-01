@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-           container('dind-daemon') {
+           container('docker') {
                 sh ' docker build -t catalog ./src/'
         }
       } 
