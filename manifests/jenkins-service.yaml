@@ -4,9 +4,10 @@ metadata:
   name: jenkins
   namespace: devops
 spec:
+  selector:
+    app: jenkins
   type: NodePort
   ports:
   - port: 8080
     targetPort: 8080
-  selector:
-    name: jenkins
+    nodePort: 32489

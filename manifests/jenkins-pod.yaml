@@ -4,18 +4,25 @@ metadata:
   name: jenkins
   namespace: devops
   labels:
-    name: jenkins  
+    app: jenkins
 spec:
+  securityContext:
+    fsGroup: 1000
+    runAsUser: 1000
+  serviceAccountName: jenkins-admin
   containers:
-  - name: jenkins
-    image: jenkins/jenkins:lts-jdk11
-    ports:
-    - containerPort: 8080
-    volumeMounts:
-    - name: jenkins-home
-      mountPath: /jenkins_home
+    - name: jenkins
+      image: jenkins/jenkins:lts
+      ports:
+        - name: httpport
+          containerPort: 8080
+        - name: jnlpport
+          containerPort: 50000
+      volumeMounts:
+        - name: jenkins-data
+          mountPath: /var/jenkins_home
   volumes:
-  - name: jenkins-home
-    hostPath:
-      path: /var/jenkins_home
+    - name: jenkins-data
+      persistentVolumeClaim:
+        claimName: jenkins-pv-claim
 
