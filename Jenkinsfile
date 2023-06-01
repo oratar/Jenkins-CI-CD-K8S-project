@@ -6,31 +6,31 @@ pipeline {
   }
   environment {
     DOCKERHUB = credentials('dockerhub_cred')
-    DOCKERHUB_REGISTERY = 'oratar333/dotnet_app'
-    MAJ ='1'
+    DOCKERHUB_REGISTRY = 'oratar333/dotnet_app'
+    MAJ = '1'
     IMG_TAG = "$MAJ.${BUILD_NUMBER}"
   }
   stages {
     stage('build') {
       steps {
-         container('dind') {
-                sh ' docker build -t dotnet_app .'
+        container('dind') {
+          sh 'docker build -t dotnet_app .'
         }
       } 
     }
     stage('push') {
       steps {
-         container('dind') {
-           script {
-             sh '''
-                  echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin
-                  docker image tag dotnet_app $DOCKERHUB_REGISTERY:$IMG_TAG
-                  docker push $DOCKERHUB_REGISTERY:$IMG_TAG
-                '''
-           }
-          
-         }
+        container('dind') {
+          script {
+            sh '''
+              echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin
+              docker image tag dotnet_app $DOCKERHUB_REGISTRY:$IMG_TAG
+              docker push $DOCKERHUB_REGISTRY:$IMG_TAG
+            '''
+          }
         }
+      }
+    }
     stage('deploy') {
       steps {
         container('kubectl') {
@@ -38,13 +38,12 @@ pipeline {
             script {
               sh ''' 
                 kubectl cluster-info
-                 '''
-                 }
-                }
-              }
+              '''
             }
           }
-      }  
+        }
+      }
+    }
   } 
-  
 }
+
