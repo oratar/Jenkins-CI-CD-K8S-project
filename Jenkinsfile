@@ -1,12 +1,16 @@
 pipeline {
-  agent any
-  
+  agent {
+    kubernetes {
+      yamlFile 'manifests/builder.yaml' 
+    }
+  }
   stages {
-    stage('Build and Deploy') {
+    stage('build') {
       steps {
-        // Add build and deployment steps here
-        sh 'echo "Build and Deploy step"'
-      }
+           container('dind-daemon') {
+                sh ' docker '
+        }
+      } 
     }
   }
 }
