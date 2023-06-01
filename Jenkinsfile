@@ -1,5 +1,5 @@
 podTemplate {
-    node( jenkins-agent ) {
+    node('jenkins-agent') {
         stage('Run shell') {
             sh 'echo hello world'
         }
