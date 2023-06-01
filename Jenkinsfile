@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-           container('docker') {
+           container('dind') {
                 sh ' docker build -t simple_app .'
         }
       } 
