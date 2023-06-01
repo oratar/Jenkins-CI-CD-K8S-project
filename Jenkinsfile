@@ -25,11 +25,25 @@ pipeline {
              sh '''
                   echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin
                   docker image tag dotnet_app $DOCKERHUB_REGISTERY:$IMG_TAG
+                  docker push $DOCKERHUB_REGISTERY:$IMG_TAG
                 '''
            }
           
          }
         }
+    stage('deploy') {
+      steps {
+        container('kubectl') {
+          withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+            script {
+              sh ''' 
+                kubectl cluster-info
+                 '''
+                 }
+                }
+              }
+            }
+          }
       }  
   } 
   
