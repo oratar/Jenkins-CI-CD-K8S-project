@@ -4,7 +4,6 @@ This repository provides a practical example of setting up a Jenkins CI/CD pipel
 The project utilizes an AKS setup using Terraform to provision the kubernetes cluster.<br> 
 The Jenkins master is deployed as a pod and uses a dynamic Jenkins agent within the AKS cluster and, taking advantage of the scalability and reliability offered by Kubernetes.<br> 
 The pipeline automates the build process, creates a Docker image of the application, pushes it to Docker Hub, deploys it to the AKS cluster, and exposes a service for access.<br>
-By following the example provided in this repository, you can learn and implement a robust CI/CD workflow for .NET applications on an AKS cluster, leveraging the power of Jenkins and Kubernetes.
 
 
 ## Prerequisites
@@ -40,7 +39,7 @@ execute the provided script:
 ```
 This script deploys the Jenkins pod with a customized Docker image that includes pre-installed plugins like Kubernetes and Kubernetes CLI.<br>
 Additionally, it creates the necessary environment for the Jenkins pod, including namespaces, configuration of the persistent volume, and exposes a NodePort service.<br>
-Once the Jenkins pod is successfully deployed, you can access the Jenkins master's UI through the web using the following URL: http://<node_ip>:<nodeport>. <br>
+Once the Jenkins pod is successfully deployed, you can access the Jenkins master's UI through the web using the following URL: http://<node_ip>:<node_port> 
 To obtain the root password for intial access, run the following command:<br> 
 ```
     kubectl logs jenkins -n devops
