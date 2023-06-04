@@ -1,7 +1,7 @@
 # Jenkins-CI-CD-K8S-project
 
-This repository provides a practical example of setting up a Jenkins CI/CD pipeline for a .NET application on an AKS (Azure Kubernetes Service) cluster. 
-The pipeline automates the build process, creates a Docker image of the application, pushes it to Docker Hub, deploys it to the AKS cluster, and exposes a service for access.
+This repository provides a practical example of setting up a Jenkins CI/CD pipeline for a .NET application on an AKS (Azure Kubernetes Service) cluster.\
+The pipeline automates the build process, creates a Docker image of the application, pushes it to Docker Hub, deploys it to the AKS cluster, and exposes a service for access.\
 
 ## Prerequisites
     Azure CLI
@@ -28,7 +28,7 @@ To set up the Jenkins pod with a local persistent volume in the devops namespace
 ```
    bash devops/setup-jenkins.sh
 ```
-This script deploys the Jenkins pod with a customized Docker image that includes pre-installed plugins like Kubernetes and Kubernetes CLI.  
+This script deploys the Jenkins pod with a customized Docker image that includes pre-installed plugins like Kubernetes and Kubernetes CLI.\  
 Additionally, it creates the necessary environment for the Jenkins pod, including namespaces, configuration of the persistent volume, and exposes a NodePort service for accessing the Jenkins master's UI. 
 Once the Jenkins pod is successfully deployed, you can access the Jenkins master's UI through the web using the following URL: http://<node_ip>:<nodeport>. 
 To obtain the root password for intial access, run the following command: 
