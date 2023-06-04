@@ -14,7 +14,7 @@ pipeline {
     stage('build') {
       steps {
         container('dind') {
-          sh 'docker build -t dotnet_app devops/Dockerfile'
+          sh 'docker build -t dotnet_app -f devops/Dockerfile .'
         }
       } 
     }
