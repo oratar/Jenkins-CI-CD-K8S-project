@@ -39,7 +39,7 @@ execute the provided script:
 ```
 This script deploys the Jenkins pod with a customized Docker image that includes pre-installed plugins like Kubernetes and Kubernetes CLI.<br>
 Additionally, it creates the necessary environment for the Jenkins pod, including namespaces, configuration of the persistent volume, and exposes a NodePort service.<br>
-Once the Jenkins pod is successfully deployed, you can access the Jenkins master's UI through the web using the following URL: http://<node_ip>:<nodeport>.
+Once the Jenkins pod is successfully deployed, you can access the Jenkins master's UI through the web using the following URL: http://<node_ip>:<nodeport> <br>
 To obtain the root password for intial access, run the following command:<br> 
 ```
     kubectl logs jenkins -n devops
