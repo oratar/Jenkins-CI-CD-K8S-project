@@ -2,8 +2,7 @@
 
 This repository provides a practical example of setting up a Jenkins CI/CD pipeline for a .NET application on an AKS (Azure Kubernetes Service) cluster.<br>
 The project utilizes an AKS setup using Terraform to provision the kubernetes cluster.<br> 
-The Jenkins master is deployed as a pod within the AKS cluster, taking advantage of the scalability and reliability offered by Kubernetes.<br> 
-Additionally, it incorporates a dynamic Jenkins agent that provisions containers on-demand to run the pipeline jobs.<br>
+The Jenkins master is deployed as a pod and uses a dynamic Jenkins agent within the AKS cluster and, taking advantage of the scalability and reliability offered by Kubernetes.<br> 
 The pipeline automates the build process, creates a Docker image of the application, pushes it to Docker Hub, deploys it to the AKS cluster, and exposes a service for access.<br>
 By following the example provided in this repository, you can learn and implement a robust CI/CD workflow for .NET applications on an AKS cluster, leveraging the power of Jenkins and Kubernetes.
 
