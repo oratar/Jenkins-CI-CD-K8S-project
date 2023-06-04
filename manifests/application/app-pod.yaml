@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+  namespace: prod
+  labels:
+    app: app
+spec:
+  containers:
+    - name: app-swagger
+      image: oratar333/dotnet_app:<TAG>
+      ports:
+        - containerPort: 80
+

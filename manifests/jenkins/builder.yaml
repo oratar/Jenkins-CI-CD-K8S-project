@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   labels:
     app: jenkins
+    namespace: dev
 spec:
   containers:
     - name: kubectl

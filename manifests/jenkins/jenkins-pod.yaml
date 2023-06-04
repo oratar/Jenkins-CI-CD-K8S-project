@@ -12,12 +12,10 @@ spec:
   serviceAccountName: jenkins-admin
   containers:
     - name: jenkins
-      image: jenkins/jenkins:lts
+      image: oratar333/jenkins-custom
       ports:
-        - name: httpport
-          containerPort: 8080
-        - name: jnlpport
-          containerPort: 50000
+        - containerPort: 8080
+        - containerPort: 50000
       volumeMounts:
         - name: jenkins-data
           mountPath: /var/jenkins_home
