@@ -1,7 +1,7 @@
 # Jenkins-CI-CD-K8S-project
 
 This repository provides a practical example of setting up a Jenkins CI/CD pipeline for a .NET application on an AKS (Azure Kubernetes Service) cluster.\
-The pipeline automates the build process, creates a Docker image of the application, pushes it to Docker Hub, deploys it to the AKS cluster, and exposes a service for access.\
+The pipeline automates the build process, creates a Docker image of the application, pushes it to Docker Hub, deploys it to the AKS cluster, and exposes a service for access.<br>
 
 ## Prerequisites
     Azure CLI
