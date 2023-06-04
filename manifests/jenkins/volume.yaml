@@ -29,7 +29,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - aks-default-52935819-vmss000000
+          - <node>
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
